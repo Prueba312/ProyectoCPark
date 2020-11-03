@@ -1,0 +1,47 @@
+﻿@model Park.Models.ViewModels.UsuarioViewModel
+@{
+    ViewBag.Title = "NuevoUsuario";
+}
+
+
+    <h2>@ViewBag.Title</h2>
+
+    @using (Html.BeginForm("NuevoUsuario", "DbPark", FormMethod.Post))
+    {
+<div class="row">
+    <div>
+        @Html.LabelFor(d => d.nombre)
+        @Html.TextBoxFor(d => d.nombre, "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(d => d.nombre, null, new { @class = "alerta"})
+    </div>
+    <div>
+        @Html.LabelFor(d => d.correo)
+        @Html.TextBoxFor(d => d.correo, "", new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(d => d.password)
+        @Html.TextBoxFor(d => d.password, "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(d => d.password, null, new { @class = "alerta" })
+    </div>
+    <div>
+        @Html.LabelFor(d => d.fecha)<br>
+        @Html.EditorFor(d => d.fecha, "", new { @class = "form-control" })<br>
+        @Html.ValidationMessageFor(d => d.fecha, null, new { @class = "alerta" })
+    </div>
+    <div>
+        @Html.LabelFor(d => d.telefono)
+        @Html.TextBoxFor(d => d.telefono, "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(d => d.telefono, null, new { @class = "alerta" })
+    </div>
+    <div>
+        @Html.LabelFor(d => d.tipo_usuario)
+        @Html.DropDownListFor( d => d.tipo_usuario, new SelectList(Enum.GetValues(typeof(Park.Models.ViewModels.Type_User))), "Seleccionar", new { @class = "form-control" })
+        @Html.ValidationMessageFor(d => d.tipo_usuario, null, new { @class = "alerta" })
+        <br />
+    </div>
+
+</div>
+    <div style="text-align:right">
+        <input value="Guardar" class="btn btn-primary" type="submit" />
+    </div>
+    }

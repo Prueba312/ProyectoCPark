@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbParkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Us_ID" />
+    </Key>
+    <Property Name="Us_ID" Type="Int32" Nullable="false" />
+    <Property Name="Us_Pass" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Us_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Us_fecha" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="Us_Correo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Us_Tipo" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Us_Telefono" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Park" Relationship="DbParkModel.FK_Park_Usuario" FromRole="Usuario" ToRole="Park" />
+  </EntityType>
+  <EntityContainer Name="DbParkEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <EntitySet Name="Espacio" EntityType="DbParkModel.Espacio" />
+    <EntitySet Name="Estacionamiento" EntityType="DbParkModel.Estacionamiento" />
+    <EntitySet Name="Segmento" EntityType="DbParkModel.Segmento" />
+    <AssociationSet Name="FK_Espacio_Segmento" Association="DbParkModel.FK_Espacio_Segmento">
+      <End Role="Segmento" EntitySet="Segmento" />
+      <End Role="Espacio" EntitySet="Espacio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estacionamiento_Espacio" Association="DbParkModel.FK_Estacionamiento_Espacio">
+      <End Role="Espacio" EntitySet="Espacio" />
+      <End Role="Estacionamiento" EntitySet="Estacionamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estacionamiento_Segmento" Association="DbParkModel.FK_Estacionamiento_Segmento">
+      <End Role="Segmento" EntitySet="Segmento" />
+      <End Role="Estacionamiento" EntitySet="Estacionamiento" />
+    </AssociationSet>
+    <EntitySet Name="Park" EntityType="DbParkModel.Park" />
+    <AssociationSet Name="FK_Estacionamiento_Park" Association="DbParkModel.FK_Estacionamiento_Park">
+      <End Role="Park" EntitySet="Park" />
+      <End Role="Estacionamiento" EntitySet="Estacionamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Park_Usuario" Association="DbParkModel.FK_Park_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Park" EntitySet="Park" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Segmento_Park" Association="DbParkModel.FK_Segmento_Park">
+      <End Role="Park" EntitySet="Park" />
+      <End Role="Segmento" EntitySet="Segmento" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Espacio">
+    <Key>
+      <PropertyRef Name="Esp_ID" />
+    </Key>
+    <Property Name="Esp_ID" Type="Int32" Nullable="false" />
+    <Property Name="Esp_Estado_Uso" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Esp_Estado" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Esp_Desc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Seg_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Segmento" Relationship="DbParkModel.FK_Espacio_Segmento" FromRole="Espacio" ToRole="Segmento" />
+    <NavigationProperty Name="Estacionamiento" Relationship="DbParkModel.FK_Estacionamiento_Espacio" FromRole="Espacio" ToRole="Estacionamiento" />
+  </EntityType>
+  <EntityType Name="Estacionamiento">
+    <Key>
+      <PropertyRef Name="Est_ID" />
+    </Key>
+    <Property Name="Est_ID" Type="Int32" Nullable="false" />
+    <Property Name="Park_ID" Type="Int32" Nullable="false" />
+    <Property Name="Seg_ID" Type="Int32" Nullable="false" />
+    <Property Name="Esp_ID" Type="Int32" Nullable="false" />
+    <Property Name="Est_Ocupacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Est_Tiem_Oc" Type="Int32" Nullable="false" />
+    <Property Name="Est_Val_Total_tar" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Est_Estado" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Espacio" Relationship="DbParkModel.FK_Estacionamiento_Espacio" FromRole="Estacionamiento" ToRole="Espacio" />
+    <NavigationProperty Name="Segmento" Relationship="DbParkModel.FK_Estacionamiento_Segmento" FromRole="Estacionamiento" ToRole="Segmento" />
+    <NavigationProperty Name="Park" Relationship="DbParkModel.FK_Estacionamiento_Park" FromRole="Estacionamiento" ToRole="Park" />
+  </EntityType>
+  <EntityType Name="Segmento">
+    <Key>
+      <PropertyRef Name="Seg_ID" />
+    </Key>
+    <Property Name="Seg_ID" Type="Int32" Nullable="false" />
+    <Property Name="Seg_Piso" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Seg_Desc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Seg_Estado" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Park_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Espacio" Relationship="DbParkModel.FK_Espacio_Segmento" FromRole="Segmento" ToRole="Espacio" />
+    <NavigationProperty Name="Estacionamiento" Relationship="DbParkModel.FK_Estacionamiento_Segmento" FromRole="Segmento" ToRole="Estacionamiento" />
+    <NavigationProperty Name="Park" Relationship="DbParkModel.FK_Segmento_Park" FromRole="Segmento" ToRole="Park" />
+  </EntityType>
+  <Association Name="FK_Espacio_Segmento">
+    <End Type="DbParkModel.Segmento" Role="Segmento" Multiplicity="1" />
+    <End Type="DbParkModel.Espacio" Role="Espacio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Segmento">
+        <PropertyRef Name="Seg_ID" />
+      </Principal>
+      <Dependent Role="Espacio">
+        <PropertyRef Name="Seg_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estacionamiento_Espacio">
+    <End Type="DbParkModel.Espacio" Role="Espacio" Multiplicity="1" />
+    <End Type="DbParkModel.Estacionamiento" Role="Estacionamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Espacio">
+        <PropertyRef Name="Esp_ID" />
+      </Principal>
+      <Dependent Role="Estacionamiento">
+        <PropertyRef Name="Esp_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estacionamiento_Segmento">
+    <End Type="DbParkModel.Segmento" Role="Segmento" Multiplicity="1" />
+    <End Type="DbParkModel.Estacionamiento" Role="Estacionamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Segmento">
+        <PropertyRef Name="Seg_ID" />
+      </Principal>
+      <Dependent Role="Estacionamiento">
+        <PropertyRef Name="Seg_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Park">
+    <Key>
+      <PropertyRef Name="Park_ID" />
+    </Key>
+    <Property Name="Park_ID" Type="Int32" Nullable="false" />
+    <Property Name="Park_Directivo" Type="Int32" Nullable="false" />
+    <Property Name="Park_piso" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Us_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estacionamiento" Relationship="DbParkModel.FK_Estacionamiento_Park" FromRole="Park" ToRole="Estacionamiento" />
+    <NavigationProperty Name="Usuario" Relationship="DbParkModel.FK_Park_Usuario" FromRole="Park" ToRole="Usuario" />
+    <NavigationProperty Name="Segmento" Relationship="DbParkModel.FK_Segmento_Park" FromRole="Park" ToRole="Segmento" />
+  </EntityType>
+  <Association Name="FK_Estacionamiento_Park">
+    <End Type="DbParkModel.Park" Role="Park" Multiplicity="1" />
+    <End Type="DbParkModel.Estacionamiento" Role="Estacionamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Park">
+        <PropertyRef Name="Park_ID" />
+      </Principal>
+      <Dependent Role="Estacionamiento">
+        <PropertyRef Name="Park_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Park_Usuario">
+    <End Type="DbParkModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="DbParkModel.Park" Role="Park" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Us_ID" />
+      </Principal>
+      <Dependent Role="Park">
+        <PropertyRef Name="Us_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Segmento_Park">
+    <End Type="DbParkModel.Park" Role="Park" Multiplicity="1" />
+    <End Type="DbParkModel.Segmento" Role="Segmento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Park">
+        <PropertyRef Name="Park_ID" />
+      </Principal>
+      <Dependent Role="Segmento">
+        <PropertyRef Name="Park_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
