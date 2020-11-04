@@ -32,32 +32,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Us_Pass)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Us_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Us_fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Us_Correo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Us_Tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Us_Telefono)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.Us_ID }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.Us_ID }) |
-            @Html.ActionLink("Borrar", "Delete", new { id=item.Us_ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Us_Pass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Us_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Us_fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Us_Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Us_Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Us_Telefono)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Us_ID }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.Us_ID }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.Us_ID })
+            </td>
+        </tr>
+    }
 
 </table>

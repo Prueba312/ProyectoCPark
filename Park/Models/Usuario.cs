@@ -20,7 +20,7 @@ namespace Park.Models
         {
             this.Park = new HashSet<Park>();
         }
-    
+
         public int Us_ID { get; set; }
         [Required]
         [Display(Name = "Contraseña")]
@@ -41,7 +41,7 @@ namespace Park.Models
         [Required]
         [Display(Name = "Telefono")]
         public string Us_Telefono { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Park> Park { get; set; }
     }
