@@ -55,9 +55,9 @@
           <Property Name="Us_Pass" Type="char" MaxLength="30" />
           <Property Name="Us_Name" Type="char" MaxLength="30" />
           <Property Name="Us_fecha" Type="char" MaxLength="15" />
-          <Property Name="Us_Correo" Type="nchar" MaxLength="50" />
-          <Property Name="Us_Tipo" Type="nchar" MaxLength="20" />
-          <Property Name="Us_Telefono" Type="nchar" MaxLength="12" />
+          <Property Name="Us_Correo" Type="char" MaxLength="50" />
+          <Property Name="Us_Tipo" Type="char" MaxLength="20" />
+          <Property Name="Us_Telefono" Type="char" MaxLength="12" />
         </EntityType>
         <Association Name="FK_Espacio_Segmento">
           <End Role="Segmento" Type="Self.Segmento" Multiplicity="1" />
@@ -174,9 +174,9 @@
           <Property Name="Us_Pass" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
           <Property Name="Us_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
           <Property Name="Us_fecha" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
-          <Property Name="Us_Correo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Us_Tipo" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="Us_Telefono" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="Us_Correo" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="Us_Tipo" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Us_Telefono" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Park" Relationship="DbParkModel.FK_Park_Usuario" FromRole="Usuario" ToRole="Park" />
         </EntityType>
         <EntityContainer Name="DbParkEntities" annotation:LazyLoadingEnabled="true">

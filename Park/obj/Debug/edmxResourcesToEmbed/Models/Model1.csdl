@@ -8,9 +8,9 @@
     <Property Name="Us_Pass" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
     <Property Name="Us_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
     <Property Name="Us_fecha" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
-    <Property Name="Us_Correo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="Us_Tipo" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-    <Property Name="Us_Telefono" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+    <Property Name="Us_Correo" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="Us_Tipo" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Us_Telefono" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="Park" Relationship="DbParkModel.FK_Park_Usuario" FromRole="Usuario" ToRole="Park" />
   </EntityType>
   <EntityContainer Name="DbParkEntities" annotation:LazyLoadingEnabled="true">

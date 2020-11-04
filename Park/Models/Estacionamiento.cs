@@ -24,7 +24,7 @@ namespace Park.Models
         public string Est_Estado { get; set; }
     
         public virtual Espacio Espacio { get; set; }
-        public virtual Segmento Segmento { get; set; }
         public virtual Park Park { get; set; }
+        public virtual Segmento Segmento { get; set; }
     }
 }
