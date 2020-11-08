@@ -1,0 +1,51 @@
+﻿@model MVCCrud.Models.ViewModels.ParkViewModel
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Editar", "Park", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(d => d.Park_ID)
+            <div>
+                @Html.LabelFor(d => d.Park_direccion)
+                @Html.TextBoxFor(d => d.Park_direccion, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Park_direccion, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Park_Name)
+                @Html.TextBoxFor(d => d.Park_Name, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Park_Name, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Park_Piso)
+                @Html.EditorFor(d => d.Park_Piso, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Park_Piso, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Us_ID)
+                @Html.EditorFor(d => d.Us_ID, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Us_ID, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Park_Tarifa)
+                @Html.EditorFor(d => d.Park_Tarifa, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Park_Tarifa, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Park_Val_Tarifa)
+                @Html.EditorFor(d => d.Park_Val_Tarifa, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Park_Val_Tarifa, null, new { @class = "red" })
+            </div>
+            <br />
+            <div style="text-align:right;">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+
+    </div>
+}
