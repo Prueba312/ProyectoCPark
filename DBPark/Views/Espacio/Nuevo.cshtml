@@ -1,0 +1,30 @@
+﻿@model DBPark.Models.ViewModels.EspacioViewModels
+@{
+    ViewBag.Title = "Nuevo Espacio";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Nuevo", "Espacio", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                @Html.LabelFor(d => d.Esp_TipVehiculo)
+                @Html.TextBoxFor(d => d.Esp_TipVehiculo, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Esp_TipVehiculo, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Esp_Estado)
+                @Html.TextBoxFor(d => d.Esp_Estado, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Esp_Estado, null, new { @class = "red" })
+            </div>
+            <br />
+            <div style="text-align:right;">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+
+    </div>
+}

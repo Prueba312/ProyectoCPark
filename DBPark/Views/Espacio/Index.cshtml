@@ -1,0 +1,37 @@
+﻿@model List<DBPark.Models.ViewModels.ListEspacioViewModels>
+@{
+                ViewBag.Title = "Espacios existentes";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Espacio/Nuevo" class="btn btn-primary">Nuevo</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Tipo de vehiculo</th>
+                <th>Estado</th>
+                <th></th>
+            </tr>
+            @foreach (var oElemento in Model)
+            {
+                <tr>
+                    <td>@oElemento.Esp_ID</td>
+                    <td>@oElemento.Esp_TipVehiculo</td>
+                    <td>@oElemento.Esp_Estado</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Espacio/Editar/@oElemento.Esp_ID">Editar</a>
+                        <a class="btn btn-danger" href="~/Espacio/Eliminar/@oElemento.Esp_ID">Eliminar</a>
+                    </td>
+                </tr>
+
+            }
+        </table>
+    </div>
+
+</div>
+
