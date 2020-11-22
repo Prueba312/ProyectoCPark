@@ -14,7 +14,7 @@ namespace DBPark.Models.ViewModels
 
         public int Ocu_ID { get; set; }
         public string Email { get; set; }
-
+        public string Matricula_Vhiculo { get; set; }
         public string Us_ID { get; set; }
     }
 }

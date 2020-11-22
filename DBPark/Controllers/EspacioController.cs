@@ -32,7 +32,8 @@ namespace DBPark.Controllers
                            Esp_Estado = d.Esp_Estado,
                            Esp_TipVehiculo = d.Esp_TipVehiculo,
                            Esp_Eliminado = d.Esp_Eliminado,
-                           Email = Us.Email
+                           Email = Us.Email,
+                           Matricula_Vhiculo = Us.Matricula_Vhiculo
 
                        }).ToList();
             }
