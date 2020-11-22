@@ -60,6 +60,7 @@
     <EntitySetMapping Name="Espacio">
       <EntityTypeMapping TypeName="DBParkModel.Espacio">
         <MappingFragment StoreEntitySet="Espacio">
+          <ScalarProperty Name="Esp_Eliminado" ColumnName="Esp_Eliminado" />
           <ScalarProperty Name="Esp_Estado" ColumnName="Esp_Estado" />
           <ScalarProperty Name="Esp_TipVehiculo" ColumnName="Esp_TipVehiculo" />
           <ScalarProperty Name="Esp_ID" ColumnName="Esp_ID" />
@@ -69,6 +70,7 @@
     <EntitySetMapping Name="Ocupacion">
       <EntityTypeMapping TypeName="DBParkModel.Ocupacion">
         <MappingFragment StoreEntitySet="Ocupacion">
+          <ScalarProperty Name="Ocu_estado" ColumnName="Ocu_estado" />
           <ScalarProperty Name="Esp_ID" ColumnName="Esp_ID" />
           <ScalarProperty Name="Us_ID" ColumnName="Us_ID" />
           <ScalarProperty Name="Ocu_ID" ColumnName="Ocu_ID" />

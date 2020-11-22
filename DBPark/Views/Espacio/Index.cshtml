@@ -15,20 +15,35 @@
                 <th>#</th>
                 <th>Tipo de vehiculo</th>
                 <th>Estado</th>
+                <th>Usuario</th>
                 <th></th>
             </tr>
             @foreach (var oElemento in Model)
             {
-                <tr>
-                    <td>@oElemento.Esp_ID</td>
-                    <td>@oElemento.Esp_TipVehiculo</td>
-                    <td>@oElemento.Esp_Estado</td>
-                    <td>
-                        <a class="btn btn-default" href="~/Espacio/Editar/@oElemento.Esp_ID">Editar</a>
-                        <a class="btn btn-danger" href="~/Espacio/Eliminar/@oElemento.Esp_ID">Eliminar</a>
-                    </td>
-                </tr>
-
+                if (!oElemento.Esp_Eliminado)
+                { 
+                    <tr>
+                        <td>@oElemento.Esp_ID</td>
+                        <td>@oElemento.Esp_TipVehiculo</td>
+                        <td>@oElemento.Esp_Estado</td>
+                        <td>@oElemento.Email</td>
+                        <td>
+                            @if (string.Equals(oElemento.Esp_Estado, "Libre"))
+                            {
+                                <a class="btn btn-default" href="~/Espacio/Ocupar/@oElemento.Esp_ID">Ocupar</a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-default" href="~/Espacio/Liberar/@oElemento.Esp_ID">Liberar</a>
+                            }
+                            <a class="btn btn-default" href="~/Espacio/Editar/@oElemento.Esp_ID">Editar</a>
+                            @if (string.Equals(oElemento.Esp_Estado, "Libre"))
+                            {
+                                <a class="btn btn-danger" href="~/Espacio/Eliminar/@oElemento.Esp_ID">Eliminar</a>
+                            }
+                        </td>
+                    </tr>
+                }
             }
         </table>
     </div>

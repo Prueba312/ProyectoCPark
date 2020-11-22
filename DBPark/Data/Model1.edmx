@@ -74,14 +74,16 @@
           <Property Name="Esp_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Esp_TipVehiculo" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Esp_Estado" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Esp_Eliminado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Ocupacion">
           <Key>
             <PropertyRef Name="Ocu_ID" />
           </Key>
-          <Property Name="Ocu_ID" Type="int" Nullable="false" />
+          <Property Name="Ocu_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Us_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Esp_ID" Type="int" Nullable="false" />
+          <Property Name="Ocu_estado" Type="bit" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -311,6 +313,7 @@
           <Property Name="Esp_TipVehiculo" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Esp_Estado" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Ocupacion" Relationship="DBParkModel.FK__Ocupacion__Esp_I__4BAC3F29" FromRole="Espacio" ToRole="Ocupacion" />
+          <Property Name="Esp_Eliminado" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Ocupacion">
           <Key>
@@ -321,6 +324,7 @@
           <Property Name="Esp_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AspNetUsers" Relationship="DBParkModel.FK__Ocupacion__Us_ID__571DF1D5" FromRole="Ocupacion" ToRole="AspNetUsers" />
           <NavigationProperty Name="Espacio" Relationship="DBParkModel.FK__Ocupacion__Esp_I__4BAC3F29" FromRole="Ocupacion" ToRole="Espacio" />
+          <Property Name="Ocu_estado" Type="Boolean" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -453,6 +457,7 @@
           <EntitySetMapping Name="Espacio">
             <EntityTypeMapping TypeName="DBParkModel.Espacio">
               <MappingFragment StoreEntitySet="Espacio">
+                <ScalarProperty Name="Esp_Eliminado" ColumnName="Esp_Eliminado" />
                 <ScalarProperty Name="Esp_Estado" ColumnName="Esp_Estado" />
                 <ScalarProperty Name="Esp_TipVehiculo" ColumnName="Esp_TipVehiculo" />
                 <ScalarProperty Name="Esp_ID" ColumnName="Esp_ID" />
@@ -462,6 +467,7 @@
           <EntitySetMapping Name="Ocupacion">
             <EntityTypeMapping TypeName="DBParkModel.Ocupacion">
               <MappingFragment StoreEntitySet="Ocupacion">
+                <ScalarProperty Name="Ocu_estado" ColumnName="Ocu_estado" />
                 <ScalarProperty Name="Esp_ID" ColumnName="Esp_ID" />
                 <ScalarProperty Name="Us_ID" ColumnName="Us_ID" />
                 <ScalarProperty Name="Ocu_ID" ColumnName="Ocu_ID" />

@@ -17,5 +17,11 @@ namespace DBPark.Models.ViewModels
         [StringLength(50)]
         [Display(Name = "Estado")]
         public string Esp_Estado { get; set; }
+
+        [Required]
+        [StringLength(258)]
+        [Display(Name = "ID")]
+        public string ID { get; set; }
     }
-}
+
+};

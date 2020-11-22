@@ -23,6 +23,7 @@ namespace DBPark.Data
         public int Esp_ID { get; set; }
         public string Esp_TipVehiculo { get; set; }
         public string Esp_Estado { get; set; }
+        public bool Esp_Eliminado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ocupacion> Ocupacion { get; set; }

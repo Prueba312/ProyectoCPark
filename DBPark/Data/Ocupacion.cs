@@ -17,6 +17,7 @@ namespace DBPark.Data
         public int Ocu_ID { get; set; }
         public string Us_ID { get; set; }
         public int Esp_ID { get; set; }
+        public Nullable<bool> Ocu_estado { get; set; }
     
         public virtual AspNetUsers AspNetUsers { get; set; }
         public virtual Espacio Espacio { get; set; }

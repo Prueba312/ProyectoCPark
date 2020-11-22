@@ -1,12 +1,12 @@
 ﻿@model DBPark.Models.ViewModels.EspacioViewModels
 @{
-    ViewBag.Title = "Editar espacio";
+    ViewBag.Title = "Ocupar espacio";
 }
 
 <h2>@ViewBag.Title</h2>
 
 
-@using (Html.BeginForm("Editar", "Espacio", FormMethod.Post))
+@using (Html.BeginForm("Ocupar", "Espacio", FormMethod.Post))
 {
     <div class="row">
         <div class="col-md-12">
@@ -17,13 +17,18 @@
                {
                     new SelectListItem() { Text = "Carro" },
                     new SelectListItem() { Text = "Moto" },
-               })
+               }, new { @disabled = "disabled" })
                 @Html.ValidationMessageFor(d => d.Esp_TipVehiculo, null, new { @class = "red" })
             </div>
             <div>
                 @Html.LabelFor(d => d.Esp_Estado)
                 @Html.TextBoxFor(d => d.Esp_Estado, "", new { @class = "form-control", @readonly = "readonly" })
                 @Html.ValidationMessageFor(d => d.Esp_Estado, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.ID)
+                @Html.DropDownListFor(d => d.ID, (SelectList)ViewBag.UsuListEmail , "Escoja Elija a parquear")
+                @Html.ValidationMessageFor(d => d.ID, null, new { @class = "red" })
             </div>
             <br />
             <div style="text-align:right;">

@@ -69,14 +69,16 @@
     <Property Name="Esp_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Esp_TipVehiculo" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Esp_Estado" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Esp_Eliminado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Ocupacion">
     <Key>
       <PropertyRef Name="Ocu_ID" />
     </Key>
-    <Property Name="Ocu_ID" Type="int" Nullable="false" />
+    <Property Name="Ocu_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Us_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="Esp_ID" Type="int" Nullable="false" />
+    <Property Name="Ocu_estado" Type="bit" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
