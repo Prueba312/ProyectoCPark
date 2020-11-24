@@ -69,21 +69,6 @@ namespace DBPark.Controllers
 
                     return Redirect("~/Espacio/");
                 }
-                else
-                {
-                    using (DBParkEntities db = new DBParkEntities())
-                    {
-                        var oEspacio = new Espacio();
-                        oEspacio.Esp_TipVehiculo = model.Esp_TipVehiculo;
-                        oEspacio.Esp_Estado = model.Esp_Estado;
-                        oEspacio.Esp_Eliminado = false;
-
-                        db.Espacio.Add(oEspacio);
-                        db.SaveChanges();
-                    }
-
-                    return Redirect("~/Espacio/");
-                }
 
                 return View(model);
 

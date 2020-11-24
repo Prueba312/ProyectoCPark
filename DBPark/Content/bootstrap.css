@@ -1081,12 +1081,13 @@ html {
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+/* cambio de color*/
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #333;
-  background-color: #fff;
+  color: #fff;
+  background-color: #0417b1;
 }
 input,
 button,
@@ -1097,7 +1098,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
+  color: #07196d;
   text-decoration: none;
 }
 a:hover,
@@ -1133,7 +1134,7 @@ img {
   height: auto;
   padding: 4px;
   line-height: 1.42857143;
-  background-color: #fff;
+  background-color: #000;
   border: 1px solid #ddd;
   border-radius: 4px;
   -webkit-transition: all .2s ease-in-out;
@@ -4960,7 +4961,7 @@ a.badge:focus {
   padding-bottom: 30px;
   margin-bottom: 30px;
   color: inherit;
-  background-color: #eee;
+  background-color: #f7d072;
 }
 .jumbotron h1,
 .jumbotron .h1 {
