@@ -1,0 +1,35 @@
+﻿@model List<DBPark.Models.ViewModels.ListEspacioViewModels>
+@{
+    ViewBag.Title = "Espacios existentes";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Tipo de vehiculo</th>
+                <th>Estado</th>
+                <th>Usuario</th>
+                <th>Matricula</th>
+                <th></th>
+            </tr>
+            @foreach (var oElemento in Model)
+            {
+                if (!oElemento.Esp_Eliminado && string.Equals(oElemento.Esp_Estado, "Libre"))
+                {
+                    <tr>
+                        <td>@oElemento.Esp_ID</td>
+                        <td>@oElemento.Esp_TipVehiculo</td>
+                        <td>@oElemento.Esp_Estado</td>
+                        <td>@oElemento.Email</td>
+                        <td>@oElemento.Matricula_Vhiculo</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+
+</div>
+

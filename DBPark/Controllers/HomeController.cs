@@ -8,21 +8,22 @@ namespace DBPark.Controllers
 {
     public class HomeController : Controller
     {
+        
         public ActionResult Index()
         {
             return View();
         }
-
+        
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Esta aplicacion fue desarrollada por estudiantes de la USC en el año 2020";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Puedes contactar al correo 12345@usc.edu.co";
 
             return View();
         }

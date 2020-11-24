@@ -313,6 +313,7 @@
     <Content Include="Views\Espacio\Nuevo.cshtml" />
     <Content Include="Views\Espacio\Editar.cshtml" />
     <Content Include="Views\Espacio\Ocupar.cshtml" />
+    <Content Include="Views\Espacio\Libre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

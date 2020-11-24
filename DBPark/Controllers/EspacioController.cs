@@ -8,9 +8,11 @@ using DBPark.Models.ViewModels;
 
 namespace DBPark.Controllers
 {
+    
     public class EspacioController : Controller
     {
         // GET: Espacio
+        [Authorize(Roles = "Administrador")]
         public ActionResult Index()
         {
             List<ListEspacioViewModels> lst;
@@ -40,7 +42,7 @@ namespace DBPark.Controllers
             return View(lst);
 
         }
-
+        [Authorize(Roles = "Administrador")]
         public ActionResult Nuevo()
         {
 
@@ -48,7 +50,7 @@ namespace DBPark.Controllers
 
             
         }
-
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public ActionResult Nuevo(EspacioViewModels model)
         {
@@ -79,7 +81,7 @@ namespace DBPark.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
+        [Authorize(Roles = "Administrador")]
         public ActionResult Editar(int Id)
         {
             EspacioViewModels model = new EspacioViewModels();
@@ -93,7 +95,7 @@ namespace DBPark.Controllers
             }
             return View(model);
         }
-
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public ActionResult Editar(EspacioViewModels model)
         {
@@ -123,6 +125,7 @@ namespace DBPark.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        [Authorize(Roles = "Administrador")]
         public ActionResult Eliminar(int Id)
         {
             using (DBParkEntities db = new DBParkEntities())
@@ -135,7 +138,7 @@ namespace DBPark.Controllers
             }
             return Redirect("~/Espacio/");
         }
-
+        [Authorize(Roles = "Administrador")]
         public ActionResult Ocupar(int Id)
         {
             EspacioViewModels model = new EspacioViewModels();
@@ -154,6 +157,7 @@ namespace DBPark.Controllers
             }
             return View(model);
         }
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public ActionResult Ocupar(EspacioViewModels model)
         {
@@ -209,7 +213,7 @@ namespace DBPark.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
+        [Authorize(Roles = "Administrador")]
         public ActionResult Liberar(int Id)
         {
             List<ListEspacioViewModels> lst;
@@ -234,6 +238,38 @@ namespace DBPark.Controllers
                 db.SaveChanges();
             }
             return Redirect("~/Espacio/");
+        }
+
+        public ActionResult Libre()
+        {
+            List<ListEspacioViewModels> lst;
+            using (DBParkEntities db = new DBParkEntities())
+            {
+                lst = (from d in db.Espacio
+                       join Ocu in (from Ocu in db.Ocupacion
+                                    where Ocu.Ocu_estado != true
+                                    select new ListOcuViewModels
+                                    {
+                                        Ocu_ID = Ocu.Ocu_ID,
+                                        Us_ID = Ocu.Us_ID,
+                                        Esp_ID = Ocu.Esp_ID
+                                    }) on d.Esp_ID equals Ocu.Esp_ID into dept
+                       from Oc in dept.DefaultIfEmpty()
+                       join Usu in db.AspNetUsers on Oc.Us_ID equals Usu.Id into Users
+                       from Us in Users.DefaultIfEmpty()
+                       select new ListEspacioViewModels
+                       {
+                           Esp_ID = d.Esp_ID,
+                           Esp_Estado = d.Esp_Estado,
+                           Esp_TipVehiculo = d.Esp_TipVehiculo,
+                           Esp_Eliminado = d.Esp_Eliminado,
+                           Email = Us.Email,
+                           Matricula_Vhiculo = Us.Matricula_Vhiculo
+
+                       }).ToList();
+            }
+            return View(lst);
+
         }
     }
 }
