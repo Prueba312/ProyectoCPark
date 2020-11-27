@@ -362,7 +362,6 @@ D:\Accesos\Documents\Proyecto C#\DBPark\bin\es\EntityFramework.SqlServer.resourc
 D:\Accesos\Documents\Proyecto C#\DBPark\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
 D:\Accesos\Documents\Proyecto C#\DBPark\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 D:\Accesos\Documents\Proyecto C#\DBPark\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-D:\Accesos\Documents\Proyecto C#\DBPark\obj\Debug\DBPark.csprojAssemblyReference.cache
 D:\Accesos\Documents\Proyecto C#\DBPark\obj\Debug\DBPark.csproj.CoreCompileInputs.cache
 D:\Accesos\Documents\Proyecto C#\DBPark\obj\Debug\DBPark.csproj.CopyComplete
 D:\Accesos\Documents\Proyecto C#\DBPark\obj\Debug\DBPark.dll

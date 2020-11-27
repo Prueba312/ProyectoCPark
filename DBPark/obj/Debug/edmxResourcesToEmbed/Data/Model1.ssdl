@@ -60,7 +60,7 @@
     <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
     <Property Name="AccessFailedCount" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
-    <Property Name="Matricula_Vhiculo" Type="nchar" MaxLength="10" />
+    <Property Name="Matricula_Vhiculo" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="Espacio">
     <Key>

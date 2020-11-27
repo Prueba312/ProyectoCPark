@@ -11,7 +11,7 @@
 {
     <div class="row">
         <div class="col-md-12">
-            <div>
+            <div class="form-group">
                 @Html.LabelFor(d => d.Esp_TipVehiculo)
                 @Html.DropDownListFor(d => d.Esp_TipVehiculo, new SelectListItem[]
                {
@@ -20,7 +20,7 @@
                })
                 @Html.ValidationMessageFor(d => d.Esp_TipVehiculo, null, new { @class = "red" })
             </div>
-            <div>
+            <div class="form-group">
                 @Html.LabelFor(d => d.Esp_Estado)
                 @Html.TextBoxFor(d => d.Esp_Estado, "", new { @class = "form-control", @readonly = "readonly", @Value ="Libre" })
                 @Html.ValidationMessageFor(d => d.Esp_Estado, null, new { @class = "red" })

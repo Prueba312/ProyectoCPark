@@ -85,7 +85,7 @@
     <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
     <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
     <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="Matricula_Vhiculo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Matricula_Vhiculo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="AspNetUserClaims" Relationship="DBParkModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
     <NavigationProperty Name="AspNetUserLogins" Relationship="DBParkModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
     <NavigationProperty Name="Ocupacion" Relationship="DBParkModel.FK__Ocupacion__Us_ID__571DF1D5" FromRole="AspNetUsers" ToRole="Ocupacion" />
