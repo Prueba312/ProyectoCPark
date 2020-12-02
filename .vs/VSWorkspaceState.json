@@ -5,6 +5,7 @@
     "\\DBPark\\Content",
     "\\DBPark\\Controllers",
     "\\DBPark\\Views",
+    "\\DBPark\\Views\\Account",
     "\\DBPark\\Views\\Home"
   ],
   "SelectedNode": "\\DBPark.sln",

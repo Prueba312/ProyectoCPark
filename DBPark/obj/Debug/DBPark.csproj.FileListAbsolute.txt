@@ -366,3 +366,4 @@ D:\Accesos\Documents\Proyecto C#\DBPark\obj\Debug\DBPark.csproj.CoreCompileInput
 D:\Accesos\Documents\Proyecto C#\DBPark\obj\Debug\DBPark.csproj.CopyComplete
 D:\Accesos\Documents\Proyecto C#\DBPark\obj\Debug\DBPark.dll
 D:\Accesos\Documents\Proyecto C#\DBPark\obj\Debug\DBPark.pdb
+D:\Accesos\Documents\Proyecto C#\DBPark\obj\Debug\DBPark.csprojAssemblyReference.cache

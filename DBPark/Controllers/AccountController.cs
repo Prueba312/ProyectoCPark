@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using DBPark.Models;
+using DBPark.Data;
+using DBPark.Models.ViewModels;
 
 namespace DBPark.Controllers
 {
@@ -157,6 +159,15 @@ namespace DBPark.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    using (DBParkEntities db = new DBParkEntities())
+                    {
+                        var oUser = db.AspNetUsers.Find(user.Id);
+                        oUser.Matricula_Vhiculo = model.Matricula_Vhiculo;
+
+                        db.Entry(oUser).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                        
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
